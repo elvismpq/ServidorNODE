@@ -21,7 +21,7 @@ class Server {
         this.app.set('port', process.env.PORT || 3000);
         this.app.use(morgan_1.default('dev'));
         this.app.use(helmet_1.default());
-        const MONGO_URI = 'mongodb://localhost:27017/cafe';
+        const MONGO_URI = 'mongodb+srv://elvis-anthony:vayneakali@cluster0.0elia.mongodb.net/cafe?retryWrites=true&w=majority';
         mongoose_1.default.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }).then(() => {
             console.log("BDD OK");
         });

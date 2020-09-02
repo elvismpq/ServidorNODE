@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "tsc": "tsc -w",
-    "dev": "nodemon ./build/server.js"
+    "dev": "node ./build/server.js"
   },
   "keywords": [],
   "author": "",

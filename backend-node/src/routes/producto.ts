@@ -1,6 +1,6 @@
 import { Router, Request, Response } from "express";
 import ProductoModel from "../models/producto";
-import CategoriaModel from "../models/Categoria";
+import CategoriaModel from "../models/categoria";
 class Producto {
     router: Router;
 

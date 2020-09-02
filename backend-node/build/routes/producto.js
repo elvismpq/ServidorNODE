@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const producto_1 = __importDefault(require("../models/producto"));
-const Categoria_1 = __importDefault(require("../models/Categoria"));
+const categoria_1 = __importDefault(require("../models/categoria"));
 class Producto {
     constructor() {
         this.router = express_1.Router();
@@ -24,7 +24,7 @@ class Producto {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let productoBD = yield producto_1.default.find({});
-                Categoria_1.default.populate(productoBD, { path: "categoria", select: "nombre" });
+                categoria_1.default.populate(productoBD, { path: "categoria", select: "nombre" });
                 let conteo = yield producto_1.default.countDocuments();
                 res.json({
                     productos: productoBD,

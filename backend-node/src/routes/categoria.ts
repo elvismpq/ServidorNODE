@@ -1,5 +1,5 @@
 import { Router, Request, Response } from "express";
-import CategoriaModel from "../models/Categoria";
+import CategoriaModel from "../models/categoria";
 
 class Categoria {
     router: Router;

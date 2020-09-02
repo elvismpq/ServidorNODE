@@ -13,7 +13,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const Categoria_1 = __importDefault(require("../models/Categoria"));
+const categoria_1 = __importDefault(require("../models/categoria"));
 class Categoria {
     constructor() {
         this.router = express_1.Router();
@@ -22,8 +22,8 @@ class Categoria {
     getCategoria(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                let categoriaBD = yield Categoria_1.default.find({}).sort('nombre');
-                let conteo = yield Categoria_1.default.countDocuments();
+                let categoriaBD = yield categoria_1.default.find({}).sort('nombre');
+                let conteo = yield categoria_1.default.countDocuments();
                 res.json({
                     categorias: categoriaBD,
                     conteo: conteo
@@ -40,7 +40,7 @@ class Categoria {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let idurl = req.params.id;
-                let categoriaBD = yield Categoria_1.default.findById(idurl);
+                let categoriaBD = yield categoria_1.default.findById(idurl);
                 res.json({
                     ok: true,
                     categoria: categoriaBD
@@ -60,7 +60,7 @@ class Categoria {
             try {
                 let bodycabecera = req.body;
                 console.log(req.body);
-                let categoria = new Categoria_1.default({
+                let categoria = new categoria_1.default({
                     nombre: bodycabecera.nombre,
                 });
                 let categoriaBD = yield categoria.save();
@@ -80,7 +80,7 @@ class Categoria {
             try {
                 let idurl = req.params.id;
                 let bodycabecera = req.body;
-                let categoriaBD = yield Categoria_1.default.findByIdAndUpdate(idurl, bodycabecera, { new: true, runValidators: true, context: 'query' });
+                let categoriaBD = yield categoria_1.default.findByIdAndUpdate(idurl, bodycabecera, { new: true, runValidators: true, context: 'query' });
                 res.json({
                     categoria: categoriaBD
                 });
@@ -97,7 +97,7 @@ class Categoria {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 let idurl = req.params.id;
-                let categoriaBD = yield Categoria_1.default.findByIdAndRemove(idurl);
+                let categoriaBD = yield categoria_1.default.findByIdAndRemove(idurl);
                 res.json({
                     mensaje: "CATEGORIA ELIMINADO",
                     categoria: categoriaBD
